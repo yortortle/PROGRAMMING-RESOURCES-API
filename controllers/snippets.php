@@ -1,7 +1,6 @@
 <?php
 
-$dbcon = pg_connect("host=localhost dbname=resources");
-header('Content-Type: application/json');
+$dbconn = pg_connect(getenv("DATABASE_URL"));
 
 include_once __DIR__ . '/../models/snippet.php';
 
