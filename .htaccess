@@ -1,0 +1,30 @@
+Header always set Access-Control-Allow-Origin "*"
+Header always set Access-Control-Allow-Methods "POST, GET, DELETE, PUT"
+Header always set Access-Control-Allow-Headers "Content-Type"
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_METHOD} ^GET$
+RewriteRule ^submissions$ controllers/submissions.php?action=index
+
+RewriteCond %{REQUEST_METHOD} ^POST$
+RewriteRule ^submissions$ controllers/submissions.php?action=post
+
+RewriteCond %{REQUEST_METHOD} ^PUT$
+RewriteRule ^submissions/([0-9]+)$ controllers/submissions.php?action=update&id=$1
+
+RewriteCond %{REQUEST_METHOD} ^DELETE$
+RewriteRule ^submissions/([0-9]+)$ controllers/submissions.php?action=delete&id=$1
+
+
+RewriteCond %{REQUEST_METHOD} ^GET$
+RewriteRule ^snippets$ controllers/snippets.php?action=index
+
+RewriteCond %{REQUEST_METHOD} ^POST$
+RewriteRule ^snippets$ controllers/snippets.php?action=post
+
+RewriteCond %{REQUEST_METHOD} ^PUT$
+RewriteRule ^snippets/([0-9]+)$ controllers/snippets.php?action=update&id=$1
+
+RewriteCond %{REQUEST_METHOD} ^DELETE$
+RewriteRule ^snippets/([0-9]+)$ controllers/snippets.php?action=delete&id=$1
